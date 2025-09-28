@@ -6,8 +6,12 @@ function PersonController() {
 
   async function getPerson() {
     const response = await fetch("https://randomuser.me/api?results=1");
-    const data = await response.json();
-    setPerson(data.results[0]);
+    const data = (await response.json()).results[0];
+    setPerson({
+      firstName: data.name.first,
+      lastName: data.name.last,
+      email: data.email,
+    });
   }
 
   useEffect(() => getPerson, []);

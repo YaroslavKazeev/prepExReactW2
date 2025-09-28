@@ -1,11 +1,12 @@
 function Person({ person }) {
+  if (person == null) {
+    return null;
+  }
   return (
     <ul>
-      <li>
-        {person
-          ? `${person.name.first} ${person.name.last} ${person.email}`
-          : "Loading..."}
-      </li>
+      <li>First name: {person.firstName}</li>
+      <li>Last name: {person.lastName}</li>
+      <li>Email: {person.email}</li>
     </ul>
   );
 }
