@@ -86,6 +86,17 @@ In this prep exercise we have gone through some of the steps in a day in the lif
 Before the session on Sunday, have a think about the following:
 
 - What would you need to do to add a new field to the list of details? Let's say we want to add the phone number! How did the structure of your code help you make this easier?
+
+Creating the person object in the PersonController makes that change obvious
+
 - What would you need to do to add a button that will fetch a new fake person rather than having one each time? How would you split up the code then?
+
+Splitting the code stays the same. The useEffect hook gets deleted. The `getPerson' function object will be passed as a prop to the' Person' component. The button will be added to the Person component with an onClick property to invoke the 'getPerson' function.
+
 - How would you do it if we want 10 random people on the screen? How does our splitting of the code help with implementing this feature?
+
+The Person and PersonController components need to be modified to achieve that and it is relatively easy. For now, only the first member of the fetched array is added to the state.
+
 - We made a choice to store the person information in our state as an object. An alternative could be to have each field have their own state, so a `[firstName, setFirstName]`, a `[lastName, setLastName]`, etc. What would the advantages and disadvantages be of doing it that way?
+
+Having one state is always more advantageous than having many. Many states are required only when they get updated independently, which is not the case here.
